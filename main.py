@@ -244,18 +244,17 @@ async def show_history_orders(message: Message):
 
     for i in order_check_info:
         text = f"""Buyurtma sanasi: {i[-1]}
-Buyurtma vaqti: {i[1]}
-Umumiy soni: {i[2]}
-Umumiy summasi: {i[3]}\n\n"""
+Buyurtma vaqti: {i[-2]}
+Umumiy soni: {i[3]}
+Umumiy summasi: {i[2]}\n\n"""
 
         detail_order = get_detail_order(i[0])
 
         for j in detail_order:
             text += f"""Kiyim: {j[0]}
-Soni {j[1]}
-Umumiy summasi {j[2]}\n\n"""
+Soni: {j[1]}
+Umumiy summasi: {j[2]}\n\n"""
 
-        # Barcha buyurtma ma'lumotlari bilan to'liq xabarni bir marta yuborish
         await bot.send_message(chat_id, text)
 
 
